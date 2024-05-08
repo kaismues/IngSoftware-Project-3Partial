@@ -59,6 +59,7 @@ body{
     align-items: center;
     gap: 70px;
     margin: 40px 0;
+    margin: 40px 0;
 }
 
 .add-tarea input{
@@ -99,6 +100,9 @@ body{
     padding: 10px;
     align-items: center;
     justify-content: space-between;
+    margin: 5px 0;
+    color: var(--white);
+
 
 }
 
@@ -113,4 +117,9 @@ body{
 
 .list-tareas > ul p{
     font-size: 1.2rem;
+}
+
+.line-through {
+    text-decoration: line-through;
+    color: var(--blue-light);
 }
