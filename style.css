@@ -18,9 +18,9 @@ body{
 }
 
 .container{
-    max-width: 80%;
+    min-height: 150px;
+    max-width: 100%;
     width: 400px;
-    height: 600px;
     margin: 0 auto;
     /*max-width: 600px;*/
     /*margin: 0 auto;*/
