@@ -5,8 +5,8 @@ const botonEnter = document.querySelector('#boton-enter')
 const check = 'fa-check-circle'
 const uncheck = 'fa-circle'
 const lineThrough = 'line-through'
-let id = 0
-const LIST=[]
+let id
+let LIST
 
 // Creación de fechas
 const FECHA = new Date()
@@ -59,6 +59,7 @@ botonEnter.addEventListener('click', ()=> {
             eliminado: false
         })
     }
+    localStorage.setItem('TODOLIST', JSON.stringify(LIST))
     input.value=''
     id++
     console.log(LIST)
@@ -76,9 +77,10 @@ document.addEventListener('keyup', function(event){
                 eliminado: false
             })
         }
-    input.value=''
-    id++
-    console.log(LIST)
+        localStorage.setItem('TODOLIST', JSON.stringify(LIST))
+        input.value=''
+        id++
+        console.log(LIST)
     }
 
 })
@@ -92,4 +94,24 @@ lista.addEventListener('click', function(event){
     else if(elementData==='eliminado'){
         tareaEliminada(element)
     }
+    localStorage.setItem('TODOLIST', JSON.stringify(LIST))
 })
+
+// Local Storage get item
+
+let data = localStorage.getItem('TODOLIST')
+if(data){
+    LIST = JSON.parse(data)
+    id = LIST.length
+    cargarLista(LIST)
+}
+else{
+    LIST = []
+    id = 0
+}
+
+function cargarLista(DATA){
+    DATA.forEach(function(i){
+        agregarTarea(i.nombre, i.id, i.realizado, i.eliminado)
+    })
+}
